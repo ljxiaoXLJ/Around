@@ -161,7 +161,7 @@ const (
 	TYPE        = "post"
 	DISTANCE    = "200km"
 	BUCKET_NAME = "post-images-lx206503"
-	ES_URL      = "http://http://35.225.168.122/"
+	ES_URL      = "http://35.225.168.122/"
 )
 
 func handlerSearch(w http.ResponseWriter, r *http.Request) {
