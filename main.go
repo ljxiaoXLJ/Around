@@ -103,7 +103,7 @@ func handlerPost(w http.ResponseWriter, r *http.Request) {
 
 	saveToES(p, id)
 
-	saveToBigTable(p, id)
+	// saveToBigTable(p, id)
 }
 
 func saveToGCS(ctx context.Context, r io.Reader, bucketName, name string) (*storage.ObjectHandle, *storage.ObjectAttrs, error) {
@@ -119,7 +119,7 @@ func saveToGCS(ctx context.Context, r io.Reader, bucketName, name string) (*stor
 	obj := bucket.Object(name)
 	wc := obj.NewWriter(ctx)
 
-	if _, err = io.Copy(wc, f); err != nil {
+	if _, err = io.Copy(wc, r); err != nil {
 		return nil, nil, err
 	}
 	if err := wc.Close(); err != nil {
